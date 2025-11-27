@@ -1,0 +1,144 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>elegant Personaortfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">ARYA</div>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger" aria-label="menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="section-hero">
+      <div class="hero-content">
+        <h1>Welcome to My World</h1>
+        <p>Crafting digital experiences that inspire and delight</p>
+        <a href="#projects" class="btn-primary">Explore My Work</a>
+      </div>
+    </section>
+
+    <section id="about" class="section-about">
+      <h2>About Me</h2>
+      <p>I'm an exceptional developer with 50+ years of coding mastery, building elegant and performant digital solutions that push boundaries.</p>
+      <div class="about-details">
+        <div>
+          <h3>Passionate</h3>
+          <p>Delivering high-quality software and design aesthetics with love for detail and precision.</p>
+        </div>
+        <div>
+          <h3>Innovator</h3>
+          <p>Always evolving and adopting cutting-edge technologies and best practices.</p>
+        </div>
+        <div>
+          <h3>Mentor</h3>
+          <p>Sharing knowledge to elevate teams and communities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section-projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <h3>Project One</h3>
+          <p>An innovative website that revolutionizes user interaction.</p>
+          <a href="#" class="btn-secondary">View Details</a>
+        </article>
+      
+        <article class="project-card">
+          <h3>Project Two</h3>
+          <p>A groundbreaking app with stunning UI and flawless UX.</p>
+          <a href="#" class="btn-secondary">View Details</a>
+        </article>
+
+        <article class="project-card">
+          <h3>Project Three</h3>
+          <p>Advanced AI-driven analysis platform with real-time insights.</p>
+          <a href="#" class="btn-secondary">View Details</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section-skills">
+      <h2>Skills & Expertise</h2>
+      <ul class="skills-list">
+        <li>HTML5 & CSS3</li>
+        <li>JavaScript (ES6+)</li>
+        <li>React, Vue, Angular</li>
+        <li>Node.js & Backend APIs</li>
+        <li>UI/UX & Responsive Design</li>
+        <li>Testing & Automation</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section-contact">
+      <h2>Contact Me</h2>
+      <form id="contact-form" aria-label="Contact form">
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" placeholder="Your Name" required />
+        
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Your Email" required />
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        
+        <button type="submit" class="btn-primary">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 YourName. Crafted with passion.</p>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-active');
+      hamburger.classList.toggle('toggle');
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetID = link.getAttribute('href').substring(1);
+        document.getElementById(targetID).scrollIntoView({ behavior: 'smooth' });
+        // Close nav on mobile once link clicked
+        if(navLinks.classList.contains('nav-active')){
+          navLinks.classList.remove('nav-active');
+          hamburger.classList.remove('toggle');
+        }
+      });
+    });
+
+    // Contact form submit mock
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Thank you for your message! I will get back to you shortly.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
